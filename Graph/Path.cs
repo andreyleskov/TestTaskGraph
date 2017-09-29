@@ -5,11 +5,11 @@ using System.Text;
 namespace Graph {
     class Path
     {
-        public Edge Begin => _points.FirstOrDefault();
-        public Edge End => _points.LastOrDefault();
-        private List<Edge> _points = new List<Edge>();
+        public Vertex Begin => _points.FirstOrDefault();
+        public Vertex End => _points.LastOrDefault();
+        private List<Vertex> _points = new List<Vertex>();
 
-        public void Add(Edge e)
+        public void Add(Vertex e)
         {
             _points.Add(e);
         }
@@ -23,7 +23,7 @@ namespace Graph {
         {
             return _points.Count;
         }
-        public bool Contains(Edge e)
+        public bool Contains(Vertex e)
         {
             return _points.Contains(e);
         }

@@ -52,8 +52,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FindAllPathsBetweenEdgesTests.cs" />
-    <Compile Include="Edge.cs" />
+    <Compile Include="GrapthAlgorithmTests.cs" />
+    <Compile Include="Vertex.cs" />
     <Compile Include="GraphPathAlgorithms.cs" />
     <Compile Include="Path.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,8 +4,8 @@ using System.Linq;
 namespace Graph {
     static class GraphPathAlgorithms
     {
-        //NOT PERFORMANT!!!!
-        public static IEnumerable<Path> FindAllPaths(Edge current, Edge end, Path path)
+        //INTENTIONALLY NOT PERFORMANT!!!!
+        public static IEnumerable<Path> FindAllPaths(Vertex current, Vertex end, Path path)
         {
             if(path.Contains(current)) yield break;
             path.Add(current);
@@ -17,8 +17,8 @@ namespace Graph {
                 yield return recPath;
         }
 
-        //NOT PERFORMANT!!!!
-        public static Path FindShortestPath(Edge current, Edge end)
+        //INTENTIONALLY NOT PERFORMANT!!!!
+        public static Path FindShortestPath(Vertex current, Vertex end)
         {
             return FindAllPaths(current, end, new Path())
                             .OrderBy(p => p.Length())

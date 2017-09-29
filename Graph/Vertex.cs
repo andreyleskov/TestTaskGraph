@@ -1,26 +1,26 @@
 ﻿using System.Collections.Generic;
 
 namespace Graph {
-    class Edge
+    class Vertex
     {
         public string Name { get; }
-        public IReadOnlyCollection<Edge> Connected => _connected;
-        private readonly List<Edge> _connected = new List<Edge>();
-        public Edge(string name)
+        public IReadOnlyCollection<Vertex> Connected => _connected;
+        private readonly List<Vertex> _connected = new List<Vertex>();
+        public Vertex(string name)
         {
             Name = name;
         }
 
-        public void CreateVertexTo(params Edge[] edges)
+        public void Connect(params Vertex[] vertices)
         {
-            foreach(var e in edges)
+            foreach(var e in vertices)
             {
                 AddVertex(this,e);
                 AddVertex(e,this);
             }
         }
 
-        private void AddVertex(Edge from,Edge to)
+        private void AddVertex(Vertex from,Vertex to)
         {
             if (!from._connected.Contains(to))
                 from._connected.Add(to);
