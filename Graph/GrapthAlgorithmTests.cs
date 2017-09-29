@@ -17,9 +17,8 @@ namespace Graph
         public void FindAllPathsBetween()
         {
             InitGrapth(out var start, out var end);
-            foreach(var path in GraphPathAlgorithms.FindAllPaths(start, end, new Path())
-                                    .Where(p => p.End == end)
-                                    .OrderBy(p => p.Length()))
+            foreach(var path in GraphPathAlgorithms.FindAllPathsBetween(start, end, new Path())
+                                                   .OrderBy(p => p.Length()))
                 _output.WriteLine(path.ToString());
         }
 

@@ -5,7 +5,7 @@ namespace Graph {
     static class GraphPathAlgorithms
     {
         //INTENTIONALLY NOT PERFORMANT!!!!
-        public static IEnumerable<Path> FindAllPaths(Vertex current, Vertex end, Path path)
+        public static IEnumerable<Path> FindAllPathsBetween(Vertex current, Vertex end, Path path)
         {
             if(path.Contains(current)) yield break;
             path.Add(current);
@@ -13,14 +13,14 @@ namespace Graph {
             if(current == end) yield return path;
 
             foreach(var outEdge in current.Connected)
-            foreach(var recPath in FindAllPaths(outEdge, end, path.Copy()))
+            foreach(var recPath in FindAllPathsBetween(outEdge, end, path.Copy()))
                 yield return recPath;
         }
 
         //INTENTIONALLY NOT PERFORMANT!!!!
         public static Path FindShortestPath(Vertex current, Vertex end)
         {
-            return FindAllPaths(current, end, new Path())
+            return FindAllPathsBetween(current, end, new Path())
                             .OrderBy(p => p.Length())
                             .FirstOrDefault();
         }
